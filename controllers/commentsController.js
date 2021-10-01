@@ -1,10 +1,10 @@
-const CommentsService = require("../service/CommentsService");
+const CommentsService = require("../service/commentsService.js");
 
 class CommentsController {
   static create = async (req, res, next) => {
     try {
-      let { message, userId, placeId } = req.body;
-      const commentsData = { message, userId, placeId };
+      let { message, userId, carsId } = req.body;
+      const commentsData = { message, userId, carsId };
       await CommentsService.create(commentsData);
       return res.json({ message: "comment created" });
     } catch (error) {

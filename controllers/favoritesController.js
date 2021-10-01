@@ -1,8 +1,8 @@
 class FavoritesController {
   static create = async (req, res, next) => {
     try {
-      let { message, favoritesId, placeId } = req.body;
-      const favoritesData = { message, favoritesId, placeId };
+      let { message, favoritesId, carsId } = req.body;
+      const favoritesData = { message, favoritesId, carsId };
       await FavoritesService.create(favoritesData);
       return res.json({ message: "favorites created" });
     } catch (error) {

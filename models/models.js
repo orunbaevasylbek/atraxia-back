@@ -17,10 +17,10 @@ const Comments = sequelize.define("comments", {
   message: { type: DataTypes.TEXT },
 });
 
-const Place = sequelize.define("place", {
+const Cars = sequelize.define("cars", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING, unique: true, allowNull: false },
-  averageBill: { type: DataTypes.STRING, allowNull: false },
+  model: { type: DataTypes.STRING, allowNull: false },
   rating: { type: DataTypes.STRING, defaultValue: 0 },
   type: { type: DataTypes.STRING, allowNull: false },
   img: { type: DataTypes.STRING, allowNull: false },
@@ -31,18 +31,18 @@ const Place = sequelize.define("place", {
 User.hasMany(Comments);
 Comments.belongsTo(User);
 
-Place.hasMany(Comments);
-Comments.belongsTo(Place);
+Cars.hasMany(Comments);
+Comments.belongsTo(Cars);
 
 User.hasMany(Favorites);
 Favorites.belongsTo(User);
 
-Place.hasMany(Favorites);
-Favorites.belongsTo(Place);
+Cars.hasMany(Favorites);
+Favorites.belongsTo(Cars);
 
 module.exports = {
   User,
   Favorites,
-  Place,
+  Cars,
   Comments,
 };
